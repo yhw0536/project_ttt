@@ -1,8 +1,10 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
 
 class Article(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     reg_date = models.DateField('등록날짜', auto_now_add=True)
     update_date = models.DateField('수정날짜', auto_now=True)
     delete_date = models.DateField('삭제날짜', null=True, blank=True)
