@@ -23,3 +23,5 @@ def articles_list(request: HttpRequest):
     })
 
 
+def articles_detail():
+    return None
