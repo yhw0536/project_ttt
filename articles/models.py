@@ -11,3 +11,4 @@ class Article(models.Model):
     content = models.TextField('내용')
     contry = models.CharField('나라', max_length=100)
     city = models.CharField('도시', max_length=100)
+    tag = models.TextField('태그', null=True, blank=True)
