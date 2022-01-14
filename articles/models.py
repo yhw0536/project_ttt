@@ -5,6 +5,7 @@ from django.db import models
 
 
 class Article(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     reg_date = models.DateField('등록날짜', auto_now_add=True)
     update_date = models.DateField('수정날짜', auto_now=True)
     delete_date = models.DateField('삭제날짜', null=True, blank=True)

@@ -37,7 +37,7 @@ def articles_create(request):
     if request.method == 'POST':
         form = ArticlesForm(request.POST)
         if form.is_valid():
-            article = form.save()
+            article = form.save(commit=False)
             article.content_type = ContentType.objects.get_for_model(article)
             article.object_id = article.id
             article.user_id = request.user.id
