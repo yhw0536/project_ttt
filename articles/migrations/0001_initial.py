@@ -10,23 +10,23 @@ def gen_master(apps, schema_editor):
     # 유저 1
     # 게시글 1
 
-    articles = Article(user_id=1, title="제주도 여행", content="제주 여행 내용", contry="대한민국", city="제주",
+    articles = Article(title="제주도 여행", content="제주 여행 내용", contry="대한민국", city="제주",
                        tag="#겨울여행 #3박4일 #액티비티 #가성비여행 #감성여행")
     articles.save()
 
     # 게시글 2
-    articles = Article(user_id=1, title="시카고 여행", content="시카고 여행 내용", contry="미국", city="시카고",
+    articles = Article(title="시카고 여행", content="시카고 여행 내용", contry="미국", city="시카고",
                        tag="#미국감성 #3박4일 #친구와함께 #시티투어")
     articles.save()
 
     # 유저 2
     # 게시글 1
-    articles = Article(user_id=2, title="속초로 떠나요", content="속초 여행 내용", contry="대한민국", city="속초",
+    articles = Article(title="속초로 떠나요", content="속초 여행 내용", contry="대한민국", city="속초",
                        tag="#느긋한 #당일치기 #태초마을 #시골감성 #힐링")
     articles.save()
 
     # 게시글 2
-    articles = Article(user_id=2, title="베를린 추천 관광지", content="베를린 여행 내용", contry="독일", city="베를린",
+    articles = Article(title="베를린 추천 관광지", content="베를린 여행 내용", contry="독일", city="베를린",
                        tag="#유럽감성 #장기여행 #시티투어 #연인과함께 #대박추천")
     articles.save()
 
