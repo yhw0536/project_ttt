@@ -15,12 +15,11 @@
                     <div class="card-body d-flex flex-column align-items-start">
                         <strong class="d-inline-block mb-2 text-primary">{{articles.title}}</strong>
                         <h3 class="mb-0">
-                            <a class="text-dark" href="#">Featured post</a>
+                            <a class="text-dark" href="#">{{article.author.username}}</a>
                         </h3>
                         <div class="mb-1 text-muted">Nov 12</div>
-                        <a href="#" class="card-text mb-auto t-no-underline">This is a wider card with supporting text below as a
-                            natural lead-in to additional content.</a>
-                        <a href="#" class="t-no-underline">Continue reading</a>
+                        <a href="#" class="card-text mb-auto t-no-underline t-text-black">{{articles.content}}</a>
+                        <a href="#" class="t-no-underline">자세히 보기</a>
                     </div>
                     <img class="card-img-right flex-auto d-none d-md-block"
                          data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
@@ -34,10 +33,10 @@
             <div class="col-12">
                 <nav>
                     <ul class="pagination justify-content-center">
-                        {% if products.has_previous %}
+                        {% if articles.has_previous %}
                         <li class="page-item">
                             <a class="page-link"
-                               href="?page={{products.previous_page_number }}&search_keyword={{ request.GET.search_keyword }}">이전으로</a>
+                               href="?page={{articles.previous_page_number }}&search_keyword={{ request.GET.search_keyword }}">이전으로</a>
                         </li>
                         {% else %}
                         <li class="page-item disabled">
@@ -45,9 +44,9 @@
                         </li>
                         {% endif %}
                         <li class="page-item">
-                            {% for page_number in products.paginator.page_range %}
-                            {% if page_number >= products.number|add:-5 and page_number <= products.number|add:5 %}
-                            {% if page_number == products.number %}
+                            {% for page_number in articles.paginator.page_range %}
+                            {% if page_number >= articles.number|add:-5 and page_number <= articles.number|add:5 %}
+                            {% if page_number == articles.number %}
                         <li class="page-item active" aria-current="page">
                             <a class="page-link"
                                href="?page={{ page_number }}&search_keyword={{ request.GET.search_keyword }}">{{
@@ -63,10 +62,10 @@
                         {% endif %}
                         {% endfor %}
                         </li>
-                        {% if products.has_next %}
+                        {% if articles.has_next %}
                         <li class="page-item">
                             <a class="page-link"
-                               href="?page={{products.next_page_number }}&search_keyword={{ request.GET.search_keyword }}">다음으로</a>
+                               href="?page={{articles.next_page_number }}&search_keyword={{ request.GET.search_keyword }}">다음으로</a>
                         </li>
                         {% else %}
                         <li class="page-item disabled">

@@ -40,6 +40,7 @@ def articles_create(request):
             article.content_type = ContentType.objects.get_for_model(article)
             article.object_id = article.id
             article.user_id = request.user.id
+            article.username = request.user.username
             article.save()
             messages.success(request, "포스트 작성이 완료되었습니다.")
 
