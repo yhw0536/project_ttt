@@ -20,8 +20,11 @@
                         </svg>
                         <div class="card-body">
                             <a href="#"
-                               class="d-inline-block mb-2 text-primary t-no-underline t-font-bold t-text-[1.2rem]">{{articles.title}}</a>
-                            <p class="card-text">{{articles.content}}</p>
+                               class="d-inline-block mb-2 text-primary t-no-underline t-font-bold t-text-[1.2rem]">{{articles.title|truncatechars:20}}</a>
+                            <br>
+                            <a href="#"
+                               class="d-inline-block mb-2 text-primary t-no-underline">{{articles.tag|truncatechars:30}}</a>
+                            <p class="card-text">{{articles.content|truncatechars:60}}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">자세히 보기</button>
