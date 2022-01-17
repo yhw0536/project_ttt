@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.http import HttpRequest
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 
 import articles
@@ -29,8 +29,12 @@ def articles_list(request: HttpRequest):
     })
 
 
-def articles_detail():
-    return None
+def articles_detail(request: HttpRequest, articles_id):
+    articles = get_object_or_404(Article, id=articles_id)
+
+    return render(request, "articles/articles_detail.html", {
+        "articles": articles,
+    })
 
 
 def articles_create(request):
