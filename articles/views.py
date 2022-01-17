@@ -21,7 +21,7 @@ def articles_list(request: HttpRequest):
         articles = Article.objects.filter(title__icontains=search_keyword).order_by('-id')
 
     page = int(request.GET.get('page', 1))
-    paginator = Paginator(articles, 4)
+    paginator = Paginator(articles, 3)
     a_list = paginator.get_page(page)
 
     return render(request, "articles/articles_list.html", {

@@ -29,3 +29,4 @@ html > body {
 - npm install
 - npm run css
 - python manage.py runserver
+- npm i bootstrap-icons
