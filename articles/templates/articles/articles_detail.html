@@ -12,11 +12,25 @@
         <div class="my-3">
             <a href="{% url 'articles:modify' articles.id %}"
                class="btn btn-sm btn-outline-secondary">수정</a>
-            <a href="#"
-               class="btn btn-sm btn-outline-secondary">삭제</a>
+            <a href="#" class="delete btn btn-sm btn-outline-secondary"
+               data-uri="{% url 'articles:delete' articles.id  %}">삭제</a>
         </div>
         {% endif %}
         <p class="t-text-[0.9rem] mt-4">{{articles.content}}</p>
     </div>
 </main>
+{% endblock %}
+{% block script %}
+<script type='text/javascript'>
+$(document).ready(function(){
+    $(".delete").on('click', function() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href = $(this).data('uri');
+        }
+    });
+});
+
+
+
+</script>
 {% endblock %}

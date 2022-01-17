@@ -1,5 +1,7 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
+from django.core import exceptions
 from django.core.paginator import Paginator
 from django.http import HttpRequest
 from django.shortcuts import render, redirect, get_object_or_404
@@ -56,6 +58,21 @@ def articles_create(request):
                       {'form': form})
 
 
+@login_required
+def articles_delete(request: HttpRequest, articles_id):
+    articles = get_object_or_404(Article, id=articles_id)
+
+    if request.user != articles.user:
+        raise exceptions.PermissionDenied()
+
+    articles.delete()
+
+    messages.success(request, "포스트가 삭제되었습니다.")
+
+    return redirect("articles:list")
+
+
+@login_required
 def articles_modify(request, articles_id):
     """질문수정"""
     articles = get_object_or_404(Article, pk=articles_id)
