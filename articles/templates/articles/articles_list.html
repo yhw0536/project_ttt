@@ -30,7 +30,7 @@
                                 <div class="btn-group">
                                     <a href="{% url 'articles:detail' articles.id %}" type="button" class="btn btn-sm btn-outline-secondary">자세히 보기</a>
                                     {% if request.user == articles.user %}
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">수정</button>
+                                    <a href="{% url 'articles:modify' articles.id %}" type="button" class="btn btn-sm btn-outline-secondary">수정</a>
                                     {% endif %}
                                 </div>
                                 <small class="text-muted">{{articles.update_date}}</small>
