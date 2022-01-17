@@ -6,4 +6,4 @@ mysqlclient
 lazy-string
 requests
 django-dotenv
-django-hashtags
+hashtags
