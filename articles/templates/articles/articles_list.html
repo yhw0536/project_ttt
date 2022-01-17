@@ -28,9 +28,10 @@
                             <p class="card-text">{{articles.content|truncatechars:60}}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">자세히 보기</button>
-
+                                    <a href="{% url 'articles:detail' articles.id %}" type="button" class="btn btn-sm btn-outline-secondary">자세히 보기</a>
+                                    {% if request.user == articles.user %}
                                     <button type="button" class="btn btn-sm btn-outline-secondary">수정</button>
+                                    {% endif %}
                                 </div>
                                 <small class="text-muted">{{articles.update_date}}</small>
                             </div>

@@ -10,7 +10,7 @@
         <a class="t-no-underline t-text-[1.0rem] t-font-bold mb-2 mt-4">{{articles.tag}}</a>
         {% if request.user == articles.user %}
         <div class="my-3">
-            <a href="#"
+            <a href="{% url 'articles:modify' articles.id %}"
                class="btn btn-sm btn-outline-secondary">수정</a>
             <a href="#"
                class="btn btn-sm btn-outline-secondary">삭제</a>

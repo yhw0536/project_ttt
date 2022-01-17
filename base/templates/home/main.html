@@ -2,10 +2,13 @@
 {% load humanize %}
 {%block content %}
 
-<section class="py-5 text-center container">
+<section class="py-5 t-text-center container">
     <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light t-font-bold t-text-[1.2rem]">TripTourTravel</h1>
+        <div class="t-col-lg-6 t-col-md-8 t-mx-auto">
+            <p class="t-font-bold t-text-[1.2rem] mb-2">TripTourTravel</p>
+            {% if user.is_authenticated %}
+            <h1 class="t-font-bold t-text-[1.2rem]">환영합니다, [ {{ user.first_name }} ] 님.</h1>
+            {% endif %}
             <p class="lead text-muted">손 안에서 펼쳐지는 여행들을 경험하고 다른 사람들에게 자신만의 여행을 공유해 보세요.</p>
             <p>
                 <a href="{% url 'articles:create' %}" class="btn btn-primary my-2">새 포스트 작성하기</a>
