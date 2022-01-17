@@ -10,9 +10,11 @@
             <h1 class="t-font-bold t-text-[1.2rem]">환영합니다, [ {{ user }} ] 님.</h1>
             {% endif %}
             <p class="lead text-muted">손 안에서 펼쳐지는 여행들을 경험하고 다른 사람들에게 자신만의 여행을 공유해 보세요.</p>
+            {% if user.is_authenticated %}
             <p>
                 <a href="{% url 'articles:create' %}" class="btn btn-primary my-2">새 포스트 작성하기</a>
             </p>
+            {% endif %}
         </div>
     </div>
 </section>
