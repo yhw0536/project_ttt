@@ -6,6 +6,7 @@
     "css": "npx tailwindcss -i ./base/static/common.base.css -o ./base/static/common.css --watch"
   },
   "dependencies": {
-    "bootstrap-icons": "^1.7.2"
+    "bootstrap-icons": "^1.7.2",
+    "simplemde": "^1.11.2"
   }
 }
