@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% load humanize %}
+{% load filter %}
 {%block content %}
 {% with img_box_class="t-relative t-overflow-hidden t-rounded" %}
 {% with img_box_before_class="before:t-content-[''] before:t-absolute before:t-inset-0 before:t-bg-[#00000000] group-hover:before:t-bg-[#00000055] before:t-transition-all" %}
@@ -24,8 +25,8 @@
                                class="d-inline-block mb-2 text-primary t-no-underline t-font-bold t-text-[1.2rem]">{{articles.title|truncatechars:20}}</a>
                             <p class="t-text-gray-400">{{articles.user}}</p>
                             <a href="{% url 'articles:detail' articles.id %}"
-                               class="d-inline-block mb-2 text-primary t-no-underline">{{articles.tag|truncatechars:30}}</a>
-                            <p class="card-text">{{articles.content|truncatechars:60}}</p>
+                               class="d-inline-block text-primary t-no-underline">{{articles.tag|truncatechars:30}}</a>
+                            <p class="card-text">{{articles.content|truncatechars:60|mark}}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <a href="{% url 'articles:detail' articles.id %}" type="button" class="btn btn-sm btn-outline-secondary">자세히 보기</a>

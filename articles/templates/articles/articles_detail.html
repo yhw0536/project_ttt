@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% load humanize %}
 {% load django_bootstrap5 %}
+{% load filter %}
 {% block content %}
 <main class="flex-shrink-0">
     <div class="container">
@@ -16,7 +17,7 @@
                data-uri="{% url 'articles:delete' articles.id  %}">삭제</a>
         </div>
         {% endif %}
-        <p class="t-text-[0.9rem] mt-4">{{articles.content}}</p>
+        <p class="t-text-[0.9rem] mt-4">{{articles.content|mark}}</p>
     </div>
 </main>
 {% endblock %}

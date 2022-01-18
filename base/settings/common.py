@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -41,7 +40,6 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'debug_toolbar',
     'django_pydenticon',
-    'markdownx',
     # 로컬
     'accounts.apps.AccountsConfig',
     'articles.apps.ArticlesConfig',
@@ -155,18 +153,3 @@ INTERNAL_IPS = ['127.0.0.1']
 LOGIN_URL = '/accounts/signin'
 
 LOGIN_REDIRECT_URL = '/'
-
-MARKDOWNX_MARKDOWN_EXTENSIONS = [
-    'markdown.extensions.extra',
-    'markdown.extensions.toc',
-    'markdown.extensions.codehilite',
-    'markdown.extensions.fenced_code',
-]
-
-MARKDOWNX_MARKDOWN_EXTENSION_CONFIGS = {
-    'markdown.extensions.codehilite': {
-        'linenums': True,
-        'use_pygments': True,
-        'noclasses': True
-    }
-}
