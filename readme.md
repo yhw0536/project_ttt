@@ -30,4 +30,4 @@ html > body {
 - npm run css
 - python manage.py runserver
 - npm i bootstrap-icons
-- npm install simplemde
+- npm install simplemde --save

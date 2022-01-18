@@ -1,18 +1,40 @@
 {% extends "layout.html" %}
 {% load humanize %}
+{% load static %}
 {%block content %}
 {% with img_box_class="t-relative t-overflow-hidden t-rounded" %}
 {% with img_box_before_class="before:t-content-[''] before:t-absolute before:t-inset-0 before:t-bg-[#00000000] group-hover:before:t-bg-[#00000055] before:t-transition-all" %}
 {% with img_box_after_class="after:t-content-[attr(data-before)] after:t-hidden group-hover:after:t-block after:t-no-underline after:t-text-white after:t-border-2 after:t-border-white after:t-border-solid after:t-rounded after:t-p-2 after:t-whitespace-nowrap after:t-absolute after:t-top-[50%] after:t-left-[50%] after:t-translate-y-[-50%] after:t-translate-x-[-50%] after:t-transition-all" %}
 <section class="section-prod-list t-mt-3">
     <div class="container">
+        {% if user.is_authenticated %}
         <h1 class="t-text-[1.2rem] t-font-bold"> 새 포스트 작성</h1>
+        <link rel="stylesheet" type="text/css" href="{% static 'simplemde.min.css' %}">
         <form method="post" class="post-form my-3">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="form-group mt-4">
+                <label for="title">제목</label>
+                <input type="text" class="form-control" name="title" id="title"
+                       value="{{ form.title.value|default_if_none:'' }}">
+            </div>
+            <div class="form-group mt-4">
+                <label for="tag">태그</label>
+                <input type="text" class="form-control" name="tag" id="tag"
+                       value="{{ form.tag.value|default_if_none:'' }}">
+            </div>
+            <div class="form-group mt-4">
+                <label for="content">내용</label>
+                <textarea class="form-control" name="content" id="content"
+                          rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
+                {% block script %}
+                <script>
+                var simplemde = new SimpleMDE({element: document.getElementById("content")});
+                </script>
+                {% endblock %}
+            </div>
             <button type="submit" class="btn btn-primary">저장하기</button>
         </form>
-
+        {% endif %}
     </div>
 </section>
 {% endwith %}
