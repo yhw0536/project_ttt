@@ -45,15 +45,15 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'accounts:signout' %}"> 로그아웃</a>
+                        <a class="nav-link" href="{% url 'articles:create' %}"> 새 포스트 작성</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                        [ {{ user }} ] 님
+                            [ {{ user }} ] 님
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'articles:create' %}"> 새 포스트 작성</a>
+                        <a class="nav-link" href="{% url 'accounts:signout' %}"> 로그아웃</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
@@ -68,7 +68,8 @@
                     {% endif %}
                 </ul>
                 <form class="d-flex" action="#">
-                    <input class="form-control me-2" type="search" name="search_keyword" placeholder=" " aria-label="Search" value="{{request.GET.search_keyword}}">
+                    <input class="form-control me-2" type="search" name="search_keyword" placeholder=" "
+                           aria-label="Search" value="{{request.GET.search_keyword}}">
                     <button class="btn btn-outline-light t-whitespace-nowrap" type="submit">검색</button>
                 </form>
             </div>
