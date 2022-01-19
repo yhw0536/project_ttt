@@ -8,6 +8,7 @@
 
         <h1 class="t-text-[1.2rem] t-font-bold mb-2">{{articles.title}}</h1>
         <h1 class="t-text-[1.0rem] t-font-bold mb-2">{{articles.user}} 님의 포스트</h1>
+        <h1 class="t-text-[1.0rem] t-font-bold mb-2 t-text-gray-400">{{articles.update_date}}</h1>
         <a class="t-no-underline t-text-[1.0rem] t-font-bold mb-2 mt-4">{{articles.tag}}</a>
         {% if request.user == articles.user %}
         <div class="my-3">
