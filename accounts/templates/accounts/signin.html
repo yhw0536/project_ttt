@@ -2,6 +2,7 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
+
 <section class="section-signin t-flex-1 t-flex t-items-center t-justify-center">
     <div class="card t-w-full t-max-w-screen-md mx-4">
         <div class="card-header">로그인</div>
@@ -13,23 +14,23 @@
                 {% bootstrap_button button_type="reset" content="취소" %}
             </form>
             <hr>
-            <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-4" type="submit">
+            <button class="w-100 py-2 mb-2 btn btn-outline-warning rounded-4" type="submit">
                 <svg class="bi me-1" width="16" height="16">
                     <use xlink:href="#twitter"/>
                 </svg>
-                Sign up with Twitter
+                <i class="fas fa-comment"></i> 카카오 계정으로 시작하기
             </button>
             <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-4" type="submit">
                 <svg class="bi me-1" width="16" height="16">
                     <use xlink:href="#facebook"/>
                 </svg>
-                Sign up with Facebook
+                <i class="fab fa-facebook"></i> 페이스북 계정으로 시작하기
             </button>
-            <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-4" type="submit">
+            <button class="w-100 py-2 mb-2 btn btn-outline-success rounded-4" type="submit">
                 <svg class="bi me-1" width="16" height="16">
                     <use xlink:href="#github"/>
                 </svg>
-                Sign up with GitHub
+                네이버 계정으로 시작하기
             </button>
         </div>
     </div>

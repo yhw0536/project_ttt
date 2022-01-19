@@ -2,12 +2,7 @@
 {% load humanize %}
 {% load static %}
 {%block content %}
-{% with img_box_class="t-relative t-overflow-hidden t-rounded" %}
-{% with img_box_before_class="before:t-content-[''] before:t-absolute before:t-inset-0 before:t-bg-[#00000000] group-hover:before:t-bg-[#00000055] before:t-transition-all" %}
-{% with img_box_after_class="after:t-content-[attr(data-before)] after:t-hidden group-hover:after:t-block after:t-no-underline after:t-text-white after:t-border-2 after:t-border-white after:t-border-solid after:t-rounded after:t-p-2 after:t-whitespace-nowrap after:t-absolute after:t-top-[50%] after:t-left-[50%] after:t-translate-y-[-50%] after:t-translate-x-[-50%] after:t-transition-all" %}
-<head>
-    <link rel="stylesheet" type="text/css" href="{% static 'simplemde.min.css' %}">
-</head>
+
 
 <section class="section-prod-list t-mt-3">
     <div class="container">
@@ -28,20 +23,18 @@
             </div>
             <div class="form-group mt-4 mb-4">
                 <label for="content">내용</label>
-                <textarea class="form-control" name="content" id="content"
+                <div>
+                    <textarea class="form-control" name="content" id="content"
                           rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
-                {% block script %}
-                <script>
-                var simplemde = new SimpleMDE({element: document.getElementById("content")});
-                </script>
-                {% endblock %}
+                    <script>
+                    var simplemde = new SimpleMDE({element: document.getElementById("content")});
+                    </script>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">저장하기</button>
         </form>
         {% endif %}
     </div>
 </section>
-{% endwith %}
-{% endwith %}
-{% endwith %}
+
 {%endblock%}

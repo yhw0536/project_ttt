@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'debug_toolbar',
     'django_pydenticon',
+
     # 로컬
     'accounts.apps.AccountsConfig',
     'articles.apps.ArticlesConfig',

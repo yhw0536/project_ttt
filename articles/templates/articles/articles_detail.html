@@ -5,7 +5,6 @@
 {% block content %}
 <main class="flex-shrink-0">
     <div class="container">
-
         <h1 class="t-text-[1.2rem] t-font-bold mb-2">{{articles.title}}</h1>
         <h1 class="t-text-[1.0rem] t-font-bold mb-2">{{articles.user}} 님의 포스트</h1>
         <h1 class="t-text-[1.0rem] t-font-bold mb-2 t-text-gray-400">{{articles.update_date}}</h1>
@@ -18,7 +17,7 @@
                data-uri="{% url 'articles:delete' articles.id  %}">삭제</a>
         </div>
         {% endif %}
-        <p class="t-text-[0.9rem] mt-4">{{articles.content|mark}}</p>
+        <div class="mt-4 markdown">{{articles.content|mark}}</div>
     </div>
 </main>
 {% endblock %}
@@ -31,8 +30,5 @@ $(document).ready(function(){
         }
     });
 });
-
-
-
 </script>
 {% endblock %}

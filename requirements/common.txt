@@ -7,5 +7,4 @@ lazy-string
 requests
 django-dotenv
 hashtags
-pip install django-markdownx==3.0.1
-pip install Pygments==2.8.0
+markdown
