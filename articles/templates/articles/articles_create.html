@@ -30,15 +30,6 @@
                     </script>
                 </div>
             </div>
-            <form action="" method="POST">
-                {% for form in forms %}
-                <div>
-                    <label for="{{ form.id_for_label }}"> {{ form.label }}</label>
-                    {{ form }}
-                </div>
-                {%endfor%}
-            </form>
-
             <button type="submit" class="btn btn-primary">저장하기</button>
         </form>
         {% endif %}
