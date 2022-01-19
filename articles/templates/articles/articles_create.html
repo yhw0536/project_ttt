@@ -2,8 +2,6 @@
 {% load humanize %}
 {% load static %}
 {%block content %}
-
-
 <section class="section-prod-list t-mt-3">
     <div class="container">
         {% if user.is_authenticated %}
@@ -25,12 +23,18 @@
                 <label for="content">내용</label>
                 <div>
                     <textarea class="form-control" name="content" id="content"
-                          rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
+                              rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
                     <script>
                     var simplemde = new SimpleMDE({element: document.getElementById("content")});
                     </script>
                 </div>
             </div>
+            {% for form in forms %}
+            <div>
+                <lable for="{{ form.id_for_label }}"> {{ form.label }}</lable>
+                {{ form }}
+            </div>
+            {%endfor%}
             <button type="submit" class="btn btn-primary">저장하기</button>
         </form>
         {% endif %}

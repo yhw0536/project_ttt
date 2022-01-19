@@ -25,6 +25,7 @@ urlpatterns = [
     path('', views.index, name='main'),
     path('accounts/', include('accounts.urls')),
     path('articles/', include('articles.urls')),
+
 ]
 
 if settings.DEBUG:

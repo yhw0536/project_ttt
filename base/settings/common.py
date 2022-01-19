@@ -28,6 +28,8 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,7 +42,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'debug_toolbar',
     'django_pydenticon',
-
+    'django_summernote',
     # 로컬
     'accounts.apps.AccountsConfig',
     'articles.apps.ArticlesConfig',

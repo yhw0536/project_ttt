@@ -52,11 +52,11 @@
                 {% if articles.has_previous %}
                 <li class="page-item">
                     <a class="page-link"
-                       href="?page={{articles.previous_page_number }}&search_keyword={{ request.GET.search_keyword }}">이전으로</a>
+                       href="?page={{articles.previous_page_number }}&search_keyword={{ request.GET.search_keyword }}"> << </a>
                 </li>
                 {% else %}
                 <li class="page-item disabled">
-                    <a class="page-link" href="#">이전으로</a>
+                    <a class="page-link" href="#"> << </a>
                 </li>
                 {% endif %}
                 <li class="page-item">
@@ -79,11 +79,11 @@
                 {% if articles.has_next %}
                 <li class="page-item">
                     <a class="page-link"
-                       href="?page={{articles.next_page_number }}&search_keyword={{ request.GET.search_keyword }}">다음으로</a>
+                       href="?page={{articles.next_page_number }}&search_keyword={{ request.GET.search_keyword }}"> >> </a>
                 </li>
                 {% else %}
                 <li class="page-item disabled">
-                    <a class="page-link" href="#">다음으로</a>
+                    <a class="page-link" href="#"> >> </a>
                 </li>
                 {% endif %}
             </ul>
