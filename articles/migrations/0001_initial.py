@@ -20,6 +20,11 @@ def gen_articles(apps, schema_editor):
                        tag="#미국감성 #3박4일 #친구와함께 #시티투어")
     articles.save()
 
+    # 게시글 2
+    articles = Article(user_id=1, title="전주 맛집 투어", content="전주 여행 내용", contry="대한민국", city="전주",
+                       tag="#국내여행 #민속 #혼자 #느긋하게 #맛집투어")
+    articles.save()
+
     # 유저 2
     # 게시글 1
     articles = Article(user_id=2, title="속초로 떠나요", content="속초 여행 내용", contry="대한민국", city="속초",
@@ -29,6 +34,12 @@ def gen_articles(apps, schema_editor):
     # 게시글 2
     articles = Article(user_id=2, title="베를린 추천 관광지", content="베를린 여행 내용", contry="독일", city="베를린",
                        tag="#유럽감성 #장기여행 #시티투어 #연인과함께 #대박추천")
+    articles.save()
+
+    #유저 3
+    # 게시글 2
+    articles = Article(user_id=3, title="파리 여행 with 가이드", content="파리 여행 내용", contry="프랑스", city="파리",
+                       tag="#유럽감성 #장기여행 #시티투어 #가이드와함께 #대박추천")
     articles.save()
 
 
