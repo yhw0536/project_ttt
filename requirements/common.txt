@@ -8,3 +8,4 @@ requests
 django-dotenv
 hashtags
 markdown
+django-summernote

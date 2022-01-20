@@ -25,8 +25,7 @@ urlpatterns = [
     path('', views.index, name='main'),
     path('accounts/', include('accounts.urls')),
     path('articles/', include('articles.urls')),
-
-]
+    path('summernote/', include('django_summernote.urls')), ]
 
 if settings.DEBUG:
     import debug_toolbar

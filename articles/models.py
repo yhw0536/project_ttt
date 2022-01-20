@@ -1,3 +1,5 @@
+from django_summernote.fields import SummernoteTextField
+
 from accounts.models import User
 from django.db import models
 
@@ -18,3 +20,6 @@ class Article(models.Model):
     hit_count = models.PositiveIntegerField('조회수', default=0)
     review_count = models.PositiveIntegerField('리뷰수', default=0)
     review_point = models.PositiveIntegerField('리뷰평점', default=0)
+
+    def __str__(self):
+        return self.title
