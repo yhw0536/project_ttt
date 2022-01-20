@@ -21,6 +21,7 @@
                             <a href="{% url 'articles:detail' articles.id %}"
                                class="d-inline-block mb-2 text-primary t-no-underline t-font-bold t-text-[1.2rem]">{{articles.title|truncatechars:20}}</a>
                             <p class="t-text-gray-400">{{articles.user}}</p>
+                            <p class="t-text-gray-400">추천 : {{articles.hit_count}}</p>
                             <a href="{% url 'articles:detail' articles.id %}"
                                class="d-inline-block text-primary t-no-underline">{{articles.tag|truncatechars:30}}</a>
                             <p class="card-text">{{articles.content|truncatechars:60|safe}}</p>
