@@ -19,7 +19,6 @@ class ArticlesForm(forms.ModelForm):
             'class': 'form-control',
             'autofocus': True,
         })
-        super(ArticlesForm, self).__init__(*args, **kwargs)
         self.fields['tag'].label = '태그'
         self.fields['tag'].widget.attrs.update({
             'placeholder': '태그의 앞에는 #을 붙여주세요.',
