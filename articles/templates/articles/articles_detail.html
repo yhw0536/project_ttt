@@ -17,7 +17,7 @@
                data-uri="{% url 'articles:delete' articles.id  %}">삭제</a>
         </div>
         {% endif %}
-        <div class="mt-4 markdown">{{articles.content|mark}}</div>
+        <div class="mt-4 markdown">{{articles.content|safe}}</div>
     </div>
 </main>
 {% endblock %}
