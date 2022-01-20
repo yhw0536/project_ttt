@@ -12,7 +12,8 @@
             <p class="lead text-muted">손 안에서 펼쳐지는 여행들을 경험하고 다른 사람들에게 자신만의 여행을 공유해 보세요.</p>
             {% if user.is_authenticated %}
             <p>
-                <a href="{% url 'articles:create' %}" class="btn btn-primary my-2">새 포스트 작성하기</a>
+                <a href="{% url 'articles:create' %}" class="btn my-2 btn text-white" style="background-color: #FF8224;">
+                    새 포스트 작성하기</a>
             </p>
             {% endif %}
         </div>
