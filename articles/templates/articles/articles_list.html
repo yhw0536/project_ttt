@@ -3,17 +3,14 @@
 {% load filter %}
 {%block content %}
 {% with img_box_class="t-relative t-overflow-hidden t-rounded" %}
-{% with img_box_before_class="before:t-content-[''] before:t-absolute before:t-inset-0 before:t-bg-[#00000000] group-hover:before:t-bg-[#00000055] before:t-transition-all" %}
-{% with img_box_after_class="after:t-content-[attr(data-before)] after:t-hidden group-hover:after:t-block after:t-no-underline after:t-text-white after:t-border-2 after:t-border-white after:t-border-solid after:t-rounded after:t-p-2 after:t-whitespace-nowrap after:t-absolute after:t-top-[50%] after:t-left-[50%] after:t-translate-y-[-50%] after:t-translate-x-[-50%] after:t-transition-all" %}
-
-<section class="section-prod-list t-mt-3">
+<section class="section-prod-list t-mt-3 ">
     <div class="album">
         <div class="container">
             <h1 class="t-text-[1.2rem] t-font-bold mb-2">최신 리뷰</h1>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 {% for articles in articles %}
                 <div class="col">
-                    <div class="card shadow-sm">
+                    <div class="card shadow-sm t-flex t-flex-col t-group">
                         <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
                              xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
                              preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
@@ -90,10 +87,5 @@
         </nav>
     </div>
 </div>
-</div>
-
 {% endwith %}
-{% endwith %}
-{% endwith %}
-
 {%endblock%}
