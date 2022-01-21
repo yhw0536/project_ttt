@@ -3,6 +3,7 @@ from django_summernote.fields import SummernoteTextField
 from accounts.models import User
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -20,6 +21,7 @@ class Article(models.Model):
     hit_count = models.PositiveIntegerField('조회수', default=0)
     review_count = models.PositiveIntegerField('리뷰수', default=0)
     review_point = models.PositiveIntegerField('리뷰평점', default=0)
+    img = models.ImageField('이미지', blank=True, upload_to="media/%Y/%m/%d")
 
     def __str__(self):
         return self.title
