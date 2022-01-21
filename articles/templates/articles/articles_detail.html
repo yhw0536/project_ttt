@@ -5,19 +5,21 @@
 {% block content %}
 <main class="flex-shrink-0">
     <div class="container mt-3">
-        <h1 class="t-text-[1.2rem] t-font-bold mb-2">{{articles.title}}</h1>
-        <h1 class="t-text-[1.0rem] t-font-bold mb-2">{{articles.user}} 님의 포스트</h1>
-        <h1 class="t-text-[1.0rem] t-font-bold mb-2 t-text-gray-400">{{articles.update_date}}</h1>
-        <a class="t-no-underline t-text-[1.0rem] t-font-bold mb-2 mt-4">{{articles.tag}}</a>
-        {% if request.user == articles.user %}
-        <div class="my-3">
-            <a href="{% url 'articles:modify' articles.id %}"
-               class="btn btn-sm btn-outline-secondary">수정</a>
-            <a href="#" class="delete btn btn-sm btn-outline-secondary"
-               data-uri="{% url 'articles:delete' articles.id  %}">삭제</a>
+        <div class="card">
+            <h1 class="t-text-[1.2rem] t-font-bold mb-2 mt-2">{{articles.title}}</h1>
+            <h1 class="t-text-[1.0rem] t-font-bold mb-2">{{articles.user}} 님의 포스트</h1>
+            <h1 class="t-text-[1.0rem] t-font-bold mb-2 t-text-gray-400">{{articles.update_date}}</h1>
+            <a class="t-no-underline t-text-[1.0rem] t-font-bold mb-2 mt-4">{{articles.tag}}</a>
+            {% if request.user == articles.user %}
+            <div class="my-3">
+                <a href="{% url 'articles:modify' articles.id %}"
+                   class="btn btn-sm btn-outline-secondary">수정</a>
+                <a href="#" class="delete btn btn-sm btn-outline-secondary"
+                   data-uri="{% url 'articles:delete' articles.id  %}">삭제</a>
+            </div>
         </div>
         {% endif %}
-        <div class="mt-4 markdown">{{articles.content|safe}}</div>
+        <div class="mt-4 mb-2">{{articles.content|safe}}</div>
     </div>
 </main>
 {% endblock %}
@@ -30,5 +32,6 @@ $(document).ready(function(){
         }
     });
 });
+
 </script>
 {% endblock %}
