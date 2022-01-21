@@ -7,32 +7,38 @@
     <div class="album absolute">
         <div class="container">
             <h1 class="t-text-[1.2rem] t-font-bold mb-2">최신 리뷰</h1>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="container t-mx-auto t-grid sm:t-grid-cols-2 md:t-grid-cols-3 t-gap-3">
                 {% for articles in articles %}
-                <div class="col">
-                    <div class="card shadow-sm t-flex t-flex-col t-group">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                             xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                             preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c"/>
-                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">이미지</text>
-                        </svg>
-                        <div class="card-body">
-                            <a href="{% url 'articles:detail' articles.id %}"
-                               class="d-inline-block mb-2 text-primary t-no-underline t-font-bold t-text-[1.2rem]">{{articles.title|truncatechars:20}}</a>
-                            <p class="t-text-gray-400">{{articles.user}}</p>
-                            <p class="t-text-gray-400">추천 : {{articles.hit_count}}</p>
-                            <a href="{% url 'articles:detail' articles.id %}"
-                               class="d-inline-block text-primary t-no-underline">{{articles.tag|truncatechars:30}}</a>
-                            <p class="card-text">{{articles.content|truncatechars:60|safe}}</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a href="{% url 'articles:detail' articles.id %}" type="button" class="btn btn-sm btn-outline-secondary">자세히 보기</a>
-                                    {% if request.user == articles.user %}
-                                    <a href="{% url 'articles:modify' articles.id %}" type="button" class="btn btn-sm btn-outline-secondary">수정</a>
-                                    {% endif %}
+                <div class="card shadow-sm t-flex t-flex-col t-group">
+                    <div class="relative">
+                        <div class="">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                 xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                                 preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c"/>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">이미지</text>
+                            </svg>
+                            <div class="card-body">
+                                <a href="{% url 'articles:detail' articles.id %}"
+                                   class="d-inline-block mb-2 text-primary t-no-underline t-font-bold t-text-[1.2rem]">{{articles.title|truncatechars:20}}</a>
+                                <p class="t-text-gray-400">{{articles.user}}</p>
+                                <p class="t-text-gray-400">추천 : {{articles.hit_count}}</p>
+                                <a href="{% url 'articles:detail' articles.id %}"
+                                   class="d-inline-block text-primary t-no-underline">{{articles.tag|truncatechars:30}}</a>
+                                <div class="multi-line-3-truncate">
+                                    <p class="card-text">{{articles.content|truncatechars:60|safe}}</p>
                                 </div>
-                                <small class="text-muted">{{articles.update_date}}</small>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{% url 'articles:detail' articles.id %}" type="button"
+                                           class="btn btn-sm btn-outline-secondary">자세히 보기</a>
+                                        {% if request.user == articles.user %}
+                                        <a href="{% url 'articles:modify' articles.id %}" type="button"
+                                           class="btn btn-sm btn-outline-secondary">수정</a>
+                                        {% endif %}
+                                    </div>
+                                    <small class="text-muted">{{articles.update_date}}</small>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -50,7 +56,8 @@
                 {% if articles.has_previous %}
                 <li class="page-item">
                     <a class="page-link"
-                       href="?page={{articles.previous_page_number }}&search_keyword={{ request.GET.search_keyword }}"> << </a>
+                       href="?page={{articles.previous_page_number }}&search_keyword={{ request.GET.search_keyword }}">
+                        << </a>
                 </li>
                 {% else %}
                 <li class="page-item disabled">
@@ -77,7 +84,8 @@
                 {% if articles.has_next %}
                 <li class="page-item">
                     <a class="page-link"
-                       href="?page={{articles.next_page_number }}&search_keyword={{ request.GET.search_keyword }}"> >> </a>
+                       href="?page={{articles.next_page_number }}&search_keyword={{ request.GET.search_keyword }}">
+                        >> </a>
                 </li>
                 {% else %}
                 <li class="page-item disabled">
