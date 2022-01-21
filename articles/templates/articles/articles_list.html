@@ -16,17 +16,22 @@
                                  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
                                  preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
                                 <rect width="100%" height="100%" fill="#55595c"/>
-                                <img src="{{articles.img}}"class="object-fit w-full" style="aspect-ratio: 1 / 1;" alt="">
+                                <img src="{{articles.img}}" class="object-fit w-full" style="aspect-ratio: 1 / 1;"
+                                     alt="">
                             </svg>
                             <div class="card-body">
                                 <a href="{% url 'articles:detail' articles.id %}"
                                    class="d-inline-block mb-2 text-primary t-no-underline t-font-bold t-text-[1.2rem]">{{articles.title|truncatechars:20}}</a>
                                 <p class="t-text-gray-400">{{articles.user}}</p>
                                 <p class="t-text-gray-400">추천 : {{articles.hit_count}}</p>
-                                <a href="{% url 'articles:detail' articles.id %}"
-                                   class="d-inline-block text-primary t-no-underline">{{articles.tag|truncatechars:30}}</a>
-                                <div class="multi-line-3-truncate">
-                                    <p class="card-text">{{articles.content|truncatechars:60|safe}}</p>
+                                <div class="multi-line-1-truncate">
+                                    <a href="{% url 'articles:detail' articles.id %}"
+                                       class="d-inline-block text-primary t-no-underline">
+                                        {{articles.tag|truncatechars:22}}
+                                    </a>
+                                </div>
+                                <div class="multi-line-2-truncate" style="height:60px;">
+                                    <p class="card-text">{{articles.content|striptags|truncatechars:60}}</p>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
@@ -35,9 +40,11 @@
                                         {% if request.user == articles.user %}
                                         <a href="{% url 'articles:modify' articles.id %}" type="button"
                                            class="btn btn-sm btn-outline-secondary">수정</a>
+                                        <a href="#" class="delete btn btn-sm btn-outline-secondary"
+                                           data-uri="{% url 'articles:delete' articles.id  %}">삭제</a>
                                         {% endif %}
                                     </div>
-                                    <small class="text-muted">{{articles.update_date}}</small>
+                                    <div class="t-text-[0.8rem] t-text-gray-400">{{articles.update_date}}</div>
                                 </div>
                             </div>
                         </div>
@@ -98,3 +105,20 @@
 </div>
 {% endwith %}
 {%endblock%}
+
+{% block script %}
+<script type='text/javascript'>
+$(document).ready(function(){
+    $(".delete").on('click', function() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href = $(this).data('uri');
+        }
+    });
+});
+
+
+
+
+
+</script>
+{% endblock %}
