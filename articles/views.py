@@ -47,6 +47,7 @@ def articles_create(request):
             article.object_id = article.id
             article.user_id = request.user.id
             article.username = request.user.username
+            article.img = article.img
             article.save()
             messages.success(request, "포스트 작성이 완료되었습니다.")
 

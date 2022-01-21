@@ -8,10 +8,8 @@
         <h1 class="t-text-[1.2rem] t-font-bold"> 새 포스트 작성</h1>
         <form method="post" class="post-form my-3">
             {% csrf_token %}
-            <div class="t-justify-center">
-                <table>
-                    {{form.as_table}}
-                </table>
+            <div>
+                {{form}}
                 <button type="submit" class="btn my-2 btn text-white" style="background-color: #FF8224;">저장하기</button>
             </div>
         </form>
