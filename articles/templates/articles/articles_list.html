@@ -23,9 +23,13 @@
                                 <a href="{% url 'articles:detail' articles.id %}"
                                    class="d-inline-block mb-2 text-primary t-no-underline t-font-bold t-text-[1.2rem]">{{articles.title|truncatechars:20}}</a>
                                 <p class="t-text-gray-400">{{articles.user}}</p>
-                                <p class="t-text-gray-400">추천 : {{articles.voter.count}}</p>
-                                <a href="{% url 'articles:vote' articles.id  %}" class="recommend btn btn-sm btn-secondary btn-block my-1 t-whitespace-nowrap">추천</a>
-
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="t-text-gray-400"> 좋아요 : {{articles.voter.count}}
+                                    </p>
+                                    <a href="{% url 'articles:vote' articles.id  %}"
+                                       class="t-whitespace-nowrap t-font-bold t-text-[1.2rem]"><i
+                                            class="fas fa-heart"></i> </a>
+                                </div>
                                 <div class="multi-line-1-truncate">
                                     <a href="{% url 'articles:detail' articles.id %}"
                                        class="d-inline-block text-primary t-no-underline">
@@ -117,5 +121,6 @@ $(document).ready(function(){
         }
     });
 });
+
 </script>
 {% endblock %}
