@@ -10,5 +10,5 @@ urlpatterns = [
     path('modify/<int:articles_id>/', views.articles_modify, name='modify'),
     path('delete/<int:articles_id>/', views.articles_delete, name='delete'),
     path('create/', views.articles_create, name='create'),
-
+    path('vote/<int:articles_id>/', views.vote_articles, name='vote'),
 ]

@@ -92,3 +92,13 @@ def articles_modify(request, articles_id):
         form = ArticlesForm(instance=articles)
     return render(request, 'articles/articles_create.html',
                   {'form': form})
+
+
+@login_required
+def vote_articles(request, articles_id):
+    articles = get_object_or_404(Article, pk=articles_id)
+    if request.user == articles.user:
+        messages.error(request, '본인이 작성한 글은 추천할 수 없습니다.')
+    else:
+        articles.voter.add(request.user)
+    return redirect('articles:list', question_id=articles.id)
