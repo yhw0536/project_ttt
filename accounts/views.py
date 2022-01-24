@@ -3,15 +3,19 @@ from django.contrib.auth import login as auth_login
 from django.contrib import messages
 from django.contrib.auth.views import LoginView, logout_then_login
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import QuerySet
 from django.http import HttpRequest
 from django.shortcuts import render, redirect
+from django.urls import reverse
+
 from .decorators import logout_required
 import requests
 
 # Create your views here.
 from lazy_string import LazyString
 
-from .forms import SignupForm
+from .forms import SignupForm, FindUsernameForm
+from .models import User
 
 
 class MyLoginView(SuccessMessageMixin, LoginView):
@@ -54,5 +58,28 @@ def signup(request):
     else:
         form = SignupForm()
     return render(request, 'accounts/signup.html', {
+        'form': form,
+    })
+
+
+def find_username(request: HttpRequest):
+    if request.method == 'POST':
+        form = FindUsernameForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            first_name = form.cleaned_data['first_name']
+
+            qs: QuerySet = User.objects.filter(email=email, first_name=first_name)
+
+            if not qs.exists():
+                messages.warning(request, "일치하는 회원이 존재하지 않습니다.")
+            else:
+                user: User = qs.first()
+                messages.success(request, f"해당회원의 username은 {user.username} 입니다.")
+                return redirect(reverse("accounts:signin") + '?username=' + user.username)
+    else:
+        form = FindUsernameForm()
+
+    return render(request, 'accounts/find_username.html', {
         'form': form,
     })
