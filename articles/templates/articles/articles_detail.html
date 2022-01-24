@@ -5,10 +5,10 @@
 {% block content %}
 <main class="flex-shrink-0">
     <div class="container mt-3">
-        <div class="card">
-            <h1 class="t-text-[1.2rem] t-font-bold mb-2 mt-2">{{articles.title}}</h1>
-            <h1 class="t-text-[1.0rem] t-font-bold mb-2">{{articles.user}} 님의 포스트</h1>
-            <h1 class="t-text-[1.0rem] t-font-bold mb-2 t-text-gray-400">{{articles.update_date}}</h1>
+        <div class="card t-p-2">
+            <div class="t-text-[1.2rem] t-font-bold mb-2 mt-2">{{articles.title}}</div>
+            <div class="t-text-[1.0rem] t-font-bold mb-2">{{articles.user}} 님의 포스트</div>
+            <div class="t-text-[1.0rem] t-font-bold mb-2 t-text-gray-400">{{articles.update_date}}</div>
             <a class="t-no-underline t-text-[1.0rem] t-font-bold mb-2 mt-4">{{articles.tag}}</a>
             {% if request.user == articles.user %}
             <div class="my-3">
@@ -19,7 +19,7 @@
             </div>
         </div>
         {% endif %}
-        <div class="mt-4 mb-2">{{articles.content|safe}}</div>
+        <div class="card mt-4 mb-2 t-m-2 t-p-2">{{articles.content|safe}}</div>
     </div>
 </main>
 {% endblock %}
