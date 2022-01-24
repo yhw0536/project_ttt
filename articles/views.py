@@ -101,4 +101,4 @@ def vote_articles(request, articles_id):
         messages.error(request, '본인이 작성한 글은 추천할 수 없습니다.')
     else:
         articles.voter.add(request.user)
-    return redirect('articles:list', question_id=articles.id)
+    return redirect('articles:list')
