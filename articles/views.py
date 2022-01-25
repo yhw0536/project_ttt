@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
 from django.core import exceptions
 from django.core.paginator import Paginator
+from django.db.models import Q
 from django.http import HttpRequest
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
@@ -19,7 +20,7 @@ def articles_list(request: HttpRequest):
     if not search_keyword:
         articles = Article.objects.order_by('-id')
     else:
-        articles = Article.objects.filter(title__icontains=search_keyword).order_by('-id')
+        articles = Article.objects.filter(Q(title__icontains=search_keyword)|Q(content__icontains=search_keyword)).order_by('-id')
 
     page = int(request.GET.get('page', 1))
     paginator = Paginator(articles, 6)
