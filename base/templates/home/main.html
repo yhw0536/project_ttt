@@ -2,9 +2,22 @@
 {% load humanize %}
 {%block content %}
 <section class="jumbotron py-5 t-text-center container">
-    <div class="row py-lg-5">
+    <div class="t-flex row py-lg-5 t-justify-content:center">
         <div class="t-col-lg-6 t-col-md-8 t-mx-auto">
-            <h1 class="t-font-bold display-3 mb-2">TripTourTravel</h1>
+            <div class="">
+                <div class="">
+                    <h1 class="t-font-bold display-3 mb-2 t-text-[#FF8224]" style="display:inline">T</h1>
+                    <h1 class="t-font-bold display-3 mb-2" style="display:inline">rip</h1>
+                </div>
+                <div>
+                    <h1 class="t-font-bold display-3 mb-2 t-text-[#FF8224]" style="display:inline">T</h1>
+                    <h1 class="t-font-bold display-3 mb-2" style="display:inline">our</h1>
+                </div>
+                <div class="mb-2">
+                    <h1 class="t-font-bold display-3 mb-2 t-text-[#FF8224]" style="display:inline">T</h1>
+                    <h1 class="t-font-bold display-3 mb-2" style="display:inline">ravel</h1>
+                </div>
+            </div>
             {% if user.is_authenticated %}
             <h1 class="t-font-bold t-text-[1.2rem]">환영합니다, [ {{ user }} ] 님.</h1>
             {% endif %}
