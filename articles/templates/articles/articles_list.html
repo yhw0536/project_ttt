@@ -23,18 +23,18 @@
                             </svg>
                             <div class="card-body">
                                 <a href="{% url 'articles:detail' articles.id %}"
-                                   class="d-inline-block mb-2 text-primary t-no-underline t-font-bold t-text-[1.2rem]">{{articles.title|truncatechars:20}}</a>
+                                   class="d-inline-block mb-2 t-no-underline t-font-bold t-text-[1.2rem] t-text-[#FF8224]">{{articles.title|truncatechars:20}}</a>
                                 <p class="t-text-gray-400">{{articles.user}}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <p class="t-text-gray-400"> 좋아요 : {{articles.voter.count}}
                                     </p>
                                     <a href="{% url 'articles:vote' articles.id  %}"
                                        class="t-whitespace-nowrap t-font-bold t-text-[1.2rem]"><i
-                                            class="fas fa-heart"></i> </a>
+                                            class="fas fa-heart t-text-[#FF8224]"></i> </a>
                                 </div>
                                 <div class="multi-line-1-truncate">
                                     <a href="{% url 'articles:detail' articles.id %}"
-                                       class="d-inline-block text-primary t-no-underline">
+                                       class="d-inline-block t-no-underline t-text-[#FF8224]">
                                         {{articles.tag|truncatechars:22}}
                                     </a>
                                 </div>

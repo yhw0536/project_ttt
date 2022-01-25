@@ -20,7 +20,9 @@ def articles_list(request: HttpRequest):
     if not search_keyword:
         articles = Article.objects.order_by('-id')
     else:
-        articles = Article.objects.filter(Q(title__icontains=search_keyword)|Q(content__icontains=search_keyword)|Q(tag__icontains=search_keyword)).order_by('-id')
+        articles = Article.objects.filter(Q(title__icontains=search_keyword)
+                                          | Q(content__icontains=search_keyword)
+                                          | Q(tag__icontains=search_keyword)).order_by('-id')
 
     page = int(request.GET.get('page', 1))
     paginator = Paginator(articles, 6)
@@ -99,7 +101,7 @@ def articles_modify(request, articles_id):
 def vote_articles(request, articles_id):
     articles = get_object_or_404(Article, pk=articles_id)
     if request.user == articles.user:
-        messages.error(request, '본인이 작성한 글은 추천할 수 없습니다.')
+        messages.warning(request, "본인이 작성한 글은 추천할 수 없습니다.")
     else:
         articles.voter.add(request.user)
     return redirect('articles:list')
