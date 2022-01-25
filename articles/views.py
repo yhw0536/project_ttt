@@ -20,7 +20,7 @@ def articles_list(request: HttpRequest):
     if not search_keyword:
         articles = Article.objects.order_by('-id')
     else:
-        articles = Article.objects.filter(Q(title__icontains=search_keyword)|Q(content__icontains=search_keyword)).order_by('-id')
+        articles = Article.objects.filter(Q(title__icontains=search_keyword)|Q(content__icontains=search_keyword)|Q(tag__icontains=search_keyword)).order_by('-id')
 
     page = int(request.GET.get('page', 1))
     paginator = Paginator(articles, 6)
