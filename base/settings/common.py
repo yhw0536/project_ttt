@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     # 서드파티
     'django_bootstrap5',
-    'debug_toolbar',
     'django_pydenticon',
     'django_summernote',
     # 로컬
@@ -164,3 +163,5 @@ SUMMERNOTE_CONFIG = {
         'height': '480',
     }
 }
+
+CSRF_TRUSTED_ORIGINS = ['https://ttt.lala.tk']
