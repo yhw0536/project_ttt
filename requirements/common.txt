@@ -11,3 +11,4 @@ markdown
 django-summernote
 requests
 django-dotenv
+django-debug-toolbar
