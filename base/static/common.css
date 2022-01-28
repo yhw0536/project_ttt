@@ -1,0 +1,226 @@
+.t-relative {
+  position: relative;
+}
+
+.t-m-2 {
+  margin: 0.5rem;
+}
+
+.t-my-\[0px\] {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.t-mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.t-mt-3 {
+  margin-top: 0.75rem;
+}
+
+.t-mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.t-flex {
+  display: flex;
+}
+
+.t-grid {
+  display: grid;
+}
+
+.t-min-h-screen {
+  min-height: 100vh;
+}
+
+.t-w-full {
+  width: 100%;
+}
+
+.t-max-w-screen-md {
+  max-width: 768px;
+}
+
+.t-flex-1 {
+  flex: 1 1 0%;
+}
+
+.t-flex-col {
+  flex-direction: column;
+}
+
+.t-items-center {
+  align-items: center;
+}
+
+.t-justify-center {
+  justify-content: center;
+}
+
+.t-gap-3 {
+  gap: 0.75rem;
+}
+
+.t-overflow-hidden {
+  overflow: hidden;
+}
+
+.t-whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.t-rounded {
+  border-radius: 0.25rem;
+}
+
+.t-p-2 {
+  padding: 0.5rem;
+}
+
+.t-py-\[20px\] {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.t-pt-\[56px\] {
+  padding-top: 56px;
+}
+
+.t-text-center {
+  text-align: center;
+}
+
+.t-text-\[1\.2rem\] {
+  font-size: 1.2rem;
+}
+
+.t-text-\[1\.0rem\] {
+  font-size: 1.0rem;
+}
+
+.t-text-\[0\.8rem\] {
+  font-size: 0.8rem;
+}
+
+.t-font-bold {
+  font-weight: 700;
+}
+
+.t-text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
+.t-text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.t-text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.t-text-\[\#FF8224\] {
+  --tw-text-opacity: 1;
+  color: rgb(255 130 36 / var(--tw-text-opacity));
+}
+
+.t-no-underline {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+}
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+
+  font-weight: normal;
+
+  font-style: normal;
+}
+
+html > body ul,
+html > body li {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+html > body {
+  font-family: "GmarketSansMedium";
+  text-underline-position: under;
+}
+
+html > body :is(h1, h2, h3, h4, h5, h6) {
+  font-weight:normal;
+  margin:0;
+  font-size:1rem;
+}
+
+.markdown h1 {
+  font-size:2rem;
+}
+
+.markdown h2 {
+  font-size:1.8rem;
+}
+
+.markdown h3 {
+  font-size:1.6rem;
+}
+
+.markdown h4 {
+  font-size:1.4rem;
+}
+
+.markdown h5 {
+  font-size:1.2rem;
+}
+
+.markdown h6 {
+  font-size:1.0rem;
+}
+
+.markdown li {
+}
+
+.multi-line-3-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.multi-line-2-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.multi-line-1-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+@media (min-width: 640px) {
+  .sm\:t-grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:t-grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
