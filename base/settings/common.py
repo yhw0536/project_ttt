@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-import os
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +28,6 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     # 서드파티
     'django_bootstrap5',
+    'debug_toolbar',
     'django_pydenticon',
-    'django_summernote',
+    'django-extensions',
+    'hashtags',
     # 로컬
     'accounts.apps.AccountsConfig',
     'articles.apps.ArticlesConfig',
@@ -147,7 +148,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = BASE_DIR / 'media'
 
 INTERNAL_IPS = ['127.0.0.1']
 
@@ -155,13 +156,7 @@ LOGIN_URL = '/accounts/signin'
 
 LOGIN_REDIRECT_URL = '/'
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
-
-SUMMERNOTE_CONFIG = {
-    'summernote': {
-        'width': '100%',
-        'height': '480',
-    }
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
 }
-
-CSRF_TRUSTED_ORIGINS = ['https://ttt.lala.tk']

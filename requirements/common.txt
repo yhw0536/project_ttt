@@ -6,9 +6,9 @@ mysqlclient
 lazy-string
 requests
 django-dotenv
+django-extensions
 hashtags
 markdown
 django-summernote
 requests
-django-dotenv
 django-debug-toolbar
